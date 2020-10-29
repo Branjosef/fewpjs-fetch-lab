@@ -1,6 +1,13 @@
 function fetchBooks() {
-
+  fetch('https://anapioficeandfire.com/api/books')
+  .then(resp => resp.json())
+  .then(json => renderBooks(json));
 }
+
+//   fetch('http://api.open-notify.org/astros.json')
+// . then(function(response){return response.json();})
+// . then(function(json) {console.log(json);console.log(json["message"]);});
+
 
 function renderBooks(books) {
   const main = document.querySelector('main')
@@ -9,8 +16,8 @@ function renderBooks(books) {
     h2.innerHTML = book.name
     main.appendChild(h2)
   })
-}
+};
 
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks()
-})
+});
